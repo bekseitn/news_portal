@@ -42,7 +42,7 @@ $route['default_controller'] = "home";
 $route['404_override'] = '';
 
 
-$route['admin/news/(:num)'] = 'admin/news';
+$route['news/(:num)'] = 'news';
 
 $route['admin'] = 'admin/dashboard';
 

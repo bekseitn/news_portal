@@ -58,6 +58,38 @@ class Home extends CI_Controller {
         $this->load->view('templates/footer');
     }
      
+    public function view($id)
+    {
+    
+        $id = $this->uri->segment(3);
+        $news = $this->news->getById($id);;
+    
+        if (empty($id))
+        {
+            show_404();
+        }
+        #Счетчик просмотров
+        $this->add_count($id);
+
+        $data['news'] = $news;
+        $this->load->view('templates/header', $data);
+        $this->load->view("home/view",$data);
+ 
+    }
+
+    function add_count($id) { 
+        $check_visitor = $this->input->cookie($id, FALSE); 
+        $ip = $this->input->ip_address();
+        if ($check_visitor == false) { 
+            $cookie = array( 
+                "name" => $id, 
+                "value" => "$ip", 
+                "expire" => time() + 7200, 
+                "secure" => false 
+                ); 
+                $this->input->set_cookie($cookie); 
+                $this->news->update_counter($id); 
+        } 
+    } 
 
 }
-

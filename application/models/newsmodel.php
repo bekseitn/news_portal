@@ -55,4 +55,13 @@ class Newsmodel extends CI_Model
         }
         return false;
     }
+
+    function update_counter($id) { 
+        $this->db->where('id', $id); 
+        $this->db->select('count'); 
+        $count = $this->db->get('news')->row(); 
+        $this->db->where('id', $id);
+        $this->db->set('count', ($count->count + 1)); 
+        $this->db->update('news'); 
+    }     
 }

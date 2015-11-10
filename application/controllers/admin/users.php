@@ -49,13 +49,20 @@ class Users extends Admin_Controller
       #Отправка письма
       $this->load->library('email');
 
-      $this->email->from('test@testapp.com', 'Administrator');
+      $this->email->from('testappastana@gmail.com', 'Administrator');
       $this->email->to($email);
 
       $this->email->subject('Тест Email');
-      $this->email->message('Пользователь '.$user->username.' успешно создан.');
+      $this->email->message('Пользователь успешно создан.');
 
-      $this->email->send();      
+      if($this->email->send())
+      {
+        echo 'Email sent.';
+      }
+       else
+      {
+        show_error($this->email->print_debugger());
+      }      
 
       redirect('admin/users','refresh');
     }

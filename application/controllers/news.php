@@ -107,7 +107,7 @@ class News extends Admin_Controller {
         $this->ckeditor-> config['width'] = $width;
         //configure ckfinder with ckeditor config 
         $this->ckfinder->SetupCKEditor($this->ckeditor,$path); 
-      }        
+    }        
 
 }
 
