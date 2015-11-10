@@ -1,24 +1,17 @@
 <div id="container">
-<h1>news Listing</h1>
-<?php if($msg = $this->session->flashdata("message")): ?>
- 
-    <p class="success">
-        <?=$msg?>
-    </p>
- 
-<?php endif; ?>
-<p><a href="<?=site_url('news/create')?>" class="btn btn-primary">New news</a></p>
+<h1>Новости</h1>
+<p><a href="<?=site_url('news/create')?>" class="btn btn-primary">Добавить новость</a></p>
 
-<?=$pagination?>
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th>ID</th>
-            <th>news Title</th>
-            <th>news Content</th>
-            <th>news Date</th>
-            <th>Actions</th>
+            <th>Заголовок</th>
+            <th>Превью</th>
+            <th>Дата добавления</th>
+            <th>Автор</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -28,8 +21,9 @@
             <td><?=$article->title?></td>
             <td><?=$article->preview?></td>
             <td><?=$article->date?></td>
-            <td><a href="<?=site_url("news/edit/".$article->id)?>" class="btn btn-default">edit</a> 
-            <a href="<?=site_url("news/delete/".$article->id)?>" class="btn btn-danger">delete</a></td>
+            <td><?=$article->author?></td>
+            <td><a href="<?=site_url("news/edit/".$article->id)?>" class="btn btn-default">Изменить</a> 
+            <a href="<?=site_url("news/delete/".$article->id)?>" class="btn btn-danger">Удалить</a></td>
         </tr>
         <?php $i++; endforeach; ?>
     </tbody>

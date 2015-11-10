@@ -1,5 +1,6 @@
-<strong>
- <?php echo date('Y'); ?>
-</strong>	
+
+			</div>
+		</div>
+	</div>	
 </body>
 </html>

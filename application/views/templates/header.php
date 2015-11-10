@@ -1,7 +1,7 @@
 <html>
 <head>
-	<title>CodeIgniter Sample</title>
-	<style>label{width:75px; display:inline-block}</style>
+	<meta charset="utf-8" />
+	<title>Test application</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
@@ -13,7 +13,18 @@
 	
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
 
 </head>
 <body>
-	<h1 align="center">CodeIgniter Sample Site</h1>
+	<nav class="navbar navbar-inverse">
+	  <div class="container">
+	 		<ul class="nav navbar-nav">
+	 			<li><a href="<?=site_url()?>">Главная</a></li>	
+	 			<li><a href="<?=site_url("admin")?>">Панель администратора</a></li>	
+			</ul>
+	  </div>
+	</nav>
+	<div class="container bs-docs-container">
+		<div class="row">
+			<div class="col-md-12" role="main">	

@@ -1,29 +1,4 @@
-<style type="text/css">
-    #container
-    {
-        width:900px;
-        background-color: #d8d8d8;
-        margin: auto;
-        padding:20px;
-        font-size:14px;
-        font-family:tahoma;
-    }
-    label
-    {
-        vertical-align: top;
-        padding:5px;
-    }
-    input,textarea
-    {
-        padding:5px;
-    }
-    .success
-    {
-        color:green;
-    }
-</style>
-<div id="container">
-<h1>Create New news</h1>
+<h1>Добавить новость</h1>
 <?php if($msg = $this->session->flashdata("message")): ?>
  
     <p class="success">
@@ -31,17 +6,33 @@
     </p>
  
 <?php endif; ?>
-<form action="" method="post">
-    <p>
-        <label for="title">news Title:</label>
-        <input type="text" name="news[title]" id="title"/>
-    </p>
-    <p>
-        <label for="preview">news preview:</label>
-        <textarea name="news[preview]" id="preview" rows="5" cols="40"></textarea>
-    </p>
-    <p>
-        <input type="submit" name="create_news" value="Create news" />
-    </p>
+<form action="" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Заголовок:</label>
+        <div class="col-sm-10">
+            <input type="text" name="news[title]" id="title" class="form-control"/>
+        </div>    
+    </div>
+
+    <div class="form-group">
+        <label for="preview" class="col-sm-2 control-label">Превью:</label>
+        <div class="col-sm-10">
+            <textarea name="news[preview]" id="preview" rows="5" cols="40" class="form-control"></textarea>
+        </div>    
+    </div>
+
+    <div class="form-group">
+        <label for="preview" class="col-sm-2 control-label">Текст:</label>
+        <div class="col-sm-10">
+            <?php echo $this->ckeditor->editor('news[body]',@$default_value);?>
+        </div>    
+    </div>    
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" name="create_news" value="Добавить новость"  class="btn btn-default"/>
+        </div>
+    </div>
+
 </form>
 </div>
